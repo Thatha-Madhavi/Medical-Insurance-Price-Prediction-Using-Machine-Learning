@@ -167,29 +167,27 @@ We convert:
 <img width="562" height="394" alt="image" src="https://github.com/user-attachments/assets/17d9b6c1-373a-4535-b2b3-8832a84daff9" />
 
 #### 4.2 Train-Test Split
-X=df.drop(['charges'],axis=1)
-Y=df[['charges']]
-from sklearn.linear_model import LinearRegression,Lasso
-from sklearn.svm import SVR
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import GradientBoostingRegressor
-from xgboost import XGBRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score
-l1=[]
-l2=[]
-l3=[]
-cvs=0
-for i in range(40,50):
- xtrain,xtest,ytrain,ytest=train_test_split(X,Y,test_size=0.2,random_state=i)
- lrmodel=LinearRegression()
- lrmodel.fit(xtrain,ytrain)
- l1.append(lrmodel.score(xtrain,ytrain))
- l2.append(lrmodel.score(xtest,ytest))
- cvs=(cross_val_score(lrmodel,X,Y,cv=5,)).mean()
- l3.append(cvs)
- df1=pd.DataFrame({'train acc':l1,'test acc':l2,'cvs':l3})
- df1
+
+<img width="1173" height="715" alt="Screenshot 2025-11-30 170449" src="https://github.com/user-attachments/assets/0a10b402-5054-48b0-89c5-e4cbb21f441b" />
+
+### 🤖 5. Model Development (Main ML Logic)
+
+I build multiple regression models and compare performance.
+
+Models Used
+
+- Linear Regression
+
+- Decision Tree Regressor
+
+- Random Forest Regressor
+  
+### ✔️ Step 6: Training Models
+#### Linear Regression
+
+<img width="1076" height="379" alt="image" src="https://github.com/user-attachments/assets/60a087bc-9215-4ae0-b55d-51fd4cd1986d" />
+
+
 
 ---
 ## ⭐ Acknowledgements
