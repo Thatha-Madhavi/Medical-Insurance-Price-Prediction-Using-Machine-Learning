@@ -177,16 +177,68 @@ I build multiple regression models and compare performance.
 Models Used
 
 - Linear Regression
-
-- Decision Tree Regressor
-
+- Support Vector Machine
 - Random Forest Regressor
+- Gradient Boost
+- XGBoost
   
 ### ✔️ Step 6: Training Models
 #### Linear Regression
 
 <img width="1076" height="379" alt="image" src="https://github.com/user-attachments/assets/60a087bc-9215-4ae0-b55d-51fd4cd1986d" />
 
+#### Support Vector Machine(SVM)
+
+<img width="709" height="367" alt="Screenshot 2025-11-30 171159" src="https://github.com/user-attachments/assets/f5661b42-f208-45f1-9b79-909c9e343f59" />
+
+
+#### Random Forest
+
+<img width="887" height="887" alt="Screenshot 2025-11-30 171237" src="https://github.com/user-attachments/assets/de70f2a4-2abf-4a11-845f-332a4da9133c" />
+
+#### Gradient Boost
+
+<img width="1099" height="904" alt="Screenshot 2025-11-30 171517" src="https://github.com/user-attachments/assets/dff65a38-b0a7-469f-8e68-81e76aa33e6f" />
+
+#### XGBoost
+
+<img width="1138" height="872" alt="Screenshot 2025-11-30 171600" src="https://github.com/user-attachments/assets/a95c0bff-ed91-45ae-a8dd-6655646f53af" />
+
+### 📊 Model Evaluation
+
+| **Model**                  | **Train Accuracy (R²)** | **Test Accuracy (R²)** | **CV Score** |
+| -------------------------- | ----------------------- | ---------------------- | ------------ |
+| **Linear Regression**      | 0.729                   | 0.806                  | 0.747        |
+| **Support Vector Machine** | -0.105                  | -0.134                 | 0.103        |
+| **Random Forest**          | **0.974**               | **0.882**              | **0.836**    |
+| **Gradient Boosting**      | 0.868                   | 0.901                  | 0.860        |
+| **XGBoost**                | 0.870                   | **0.904**              | 0.860        |
+
+#### Final Model 
+
+As you see XGBoost is best. So, i identified the important features and here is the final model. 
+
+<img width="989" height="528" alt="Screenshot 2025-11-30 172903" src="https://github.com/user-attachments/assets/02696c44-64f8-4861-b350-835d51922ccb" />
+
+### Saving Model for Deployment
+<img width="640" height="96" alt="Screenshot 2025-11-30 173028" src="https://github.com/user-attachments/assets/80fd16dc-849c-4d2a-bd16-81d3ca10acc4" />
+
+### Predict on New Data
+
+<img width="1498" height="255" alt="image" src="https://github.com/user-attachments/assets/60350cbe-25bb-42af-a9a5-aa35eeddca2e" />
+🌐 10. Future Enhancements
+
+- Add Flask / FastAPI Web App
+
+- Deploy model to cloud (AWS / Render / Railway)
+
+- Hyperparameter tuning (GridSearchCV)
+
+- Add Streamlit UI for clean interface
+
+- Improve model accuracy using XGBoost / Gradient Boosting
+
+- Add SHAP explainability graphs
 
 
 ---
