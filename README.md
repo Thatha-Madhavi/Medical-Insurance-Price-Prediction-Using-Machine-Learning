@@ -79,9 +79,119 @@ This is the heart of your project:
            │ Model (pickle)    │
            └──────────────────┘
 
+### ✔️ Step 1: Import Libraries
+
+#### Load essential libraries for:
+
+- Data processing → pandas, numpy
+
+- Visualization → matplotlib, seaborn
+
+- Machine learning → scikit-learn
+
+<img width="1216" height="321" alt="Screenshot 2025-11-30 164957" src="https://github.com/user-attachments/assets/9c5bb18d-9569-4030-a4d0-9030a8d5fceb" />
+
+### ✔️ Step 2: Load and Inspect Data
+<img width="514" height="110" alt="Screenshot 2025-11-30 165209" src="https://github.com/user-attachments/assets/4c5dbcdb-95bd-4e07-b15b-94cc79c2ddd8" />
+
+**Output**
+
+<img width="878" height="634" alt="Screenshot 2025-11-30 165247" src="https://github.com/user-attachments/assets/7af394ac-f17f-422c-9383-2948d6b6e30a" />
+
+We check:
+
+- Data types
+
+- Missing values
+
+- Statistical summary
+
+- Overall structure
+
+💡 This step ensures the dataset is clean and ready for modeling.
+
+### ✔️ Step 3: Exploratory Data Analysis (EDA)
+
+EDA helps us understand patterns, relationships, and hidden insights.
+
+#### 3.1 Univariate Analysis
+
+- Age distribution
+
+- Charges distribution
+
+- BMI analysis
+
+- Smokers vs Non-smokers count
+
+#### 3.2 Bivariate Analysis
+
+- Charges vs Age
+
+- Charges vs BMI
+
+- Charges vs Smoker
+
+- Charges vs Region
+
+##### 👉 Key Observations you can mention:
+
+- Smokers have drastically higher insurance charges
+
+- Higher BMI increases cost
+
+- Age positively correlates with cost
+
+ #### 3.3 Correlation Matrix
+
+Visualization using heatmap helps identify highly important features.
+
+### ✔️ Step 4: Data Preprocessing
+
+#### 4.1 Encoding Categorical Variables
+
+Machine Learning models require numeric values.
+
+We convert:
+
+- sex → male/female
+
+- smoker → yes/no
+
+- region → one-hot encoded
+
+
+<img width="560" height="125" alt="Screenshot 2025-11-30 165806" src="https://github.com/user-attachments/assets/b7bac3e4-db3d-4d50-89f4-0dc0408e4eba" />
+
+**Output**
+<img width="562" height="394" alt="image" src="https://github.com/user-attachments/assets/17d9b6c1-373a-4535-b2b3-8832a84daff9" />
+
+#### 4.2 Train-Test Split
+X=df.drop(['charges'],axis=1)
+Y=df[['charges']]
+from sklearn.linear_model import LinearRegression,Lasso
+from sklearn.svm import SVR
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from xgboost import XGBRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+l1=[]
+l2=[]
+l3=[]
+cvs=0
+for i in range(40,50):
+ xtrain,xtest,ytrain,ytest=train_test_split(X,Y,test_size=0.2,random_state=i)
+ lrmodel=LinearRegression()
+ lrmodel.fit(xtrain,ytrain)
+ l1.append(lrmodel.score(xtrain,ytrain))
+ l2.append(lrmodel.score(xtest,ytest))
+ cvs=(cross_val_score(lrmodel,X,Y,cv=5,)).mean()
+ l3.append(cvs)
+ df1=pd.DataFrame({'train acc':l1,'test acc':l2,'cvs':l3})
+ df1
 
 ---
-
 ## ⭐ Acknowledgements
 This project was built to practice real-world machine learning workflows and end-to-end model development.  
 Inspired by healthcare cost analysis used by insurance companies.
